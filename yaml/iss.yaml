@@ -37,7 +37,14 @@
   cmd: >
     <path_var> <elf> --log --xlen <xlen> --isa <variant> --configfile <config_path>/whisper.json --iccmrw
 
+- iss: etiss
+  path_var: ETISS_PATH
+  cmd: >
+    <path_var>/build/bin/run_helper.sh <elf> -i/nfs/TUEIEDAscratch/ge59xaz/memsegs.ini -pPrintInstruction
+
 - iss: renode
   path_var: RENODE_PATH
   cmd: >
     python3 <scripts_path>/renode_wrapper.py --renode "<path_var>" --elf <elf> --isa <variant> --mem-size 0x80000000
+
+

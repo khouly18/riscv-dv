@@ -98,6 +98,7 @@ def run_cmd(cmd, timeout_s=999, exit_on_error=1, check_return_code=True,
     Returns:
       command output
     """
+    timeout_s = 2000
     logging.debug(cmd)
     if debug_cmd:
         debug_cmd.write(cmd)

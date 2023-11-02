@@ -25,6 +25,7 @@ import logging
 
 from scripts.lib import *
 from scripts.spike_log_to_trace_csv import *
+from scripts.etiss_log_to_trace_csv import *
 from scripts.ovpsim_log_to_trace_csv import *
 from scripts.whisper_log_trace_csv import *
 from scripts.sail_log_to_trace_csv import *
@@ -794,7 +795,7 @@ def parse_args(cwd):
                         help="Simulator used to run the generator, default VCS",
                         dest="simulator")
     parser.add_argument("--iss", type=str, default="spike",
-                        help="RISC-V instruction set simulator: spike,ovpsim,sail")
+                        help="RISC-V instruction set simulator: spike,ovpsim,sail,whisper,etiss")
     parser.add_argument("-v", "--verbose", dest="verbose", action="store_true",
                         default=False,
                         help="Verbose logging")
