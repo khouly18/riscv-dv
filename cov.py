@@ -26,6 +26,8 @@ from scripts.lib import *
 from scripts.spike_log_to_trace_csv import *
 from scripts.ovpsim_log_to_trace_csv import *
 from scripts.sail_log_to_trace_csv import *
+from scripts.etiss_log_to_trace_csv import *
+
 from types import SimpleNamespace
 
 LOGGER = logging.getLogger()
@@ -187,6 +189,8 @@ def collect_cov(out, cfg, cwd):
                     process_ovpsim_sim_log(log, csv, argv.stop_on_first_error,
                                            argv.dont_truncate_after_first_ecall,
                                            1)
+                elif argv.iss == "etiss":
+                    process_etiss_sim_log(log, csv, 1)
                 else:
                     logging.error(
                         "Full trace for {} is not supported yet".format(argv.iss))
@@ -239,7 +243,7 @@ def setup_parser():
     parser.add_argument("--isa", type=str, default="",
                         help="RISC-V ISA variant")
     parser.add_argument("--iss", type=str, default="spike",
-                        help="RISC-V instruction set simulator: spike,ovpsim,sail")
+                        help="RISC-V instruction set simulator: spike,ovpsim,sail,etiss")
     parser.add_argument("-tl", "--testlist", type=str, default="",
                         help="Regression testlist", dest="testlist")
     parser.add_argument("--opts", type=str, default="",

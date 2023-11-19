@@ -738,6 +738,8 @@ def compare_iss_log(iss_list, log_list, report, stop_on_first_error=0,
                 process_sail_sim_log(log, csv)
             elif iss == "whisper":
                 process_whisper_sim_log(log, csv)
+            elif iss == "etiss":
+                process_etiss_sim_log(log, csv)
             else:
                 logging.error("Unsupported ISS {}".format(iss))
                 sys.exit(RET_FAIL)

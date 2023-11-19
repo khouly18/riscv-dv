@@ -221,7 +221,8 @@ class riscv_instr_gen_config:
         # Generate a bare program without any init/exit/error handling/page table routines
         # The generated program can be integrated with a larger program.
         # Note that the bare mode program is not expected to run in standalone mode
-        self.bare_program_mode = self.argv.bare_program_mode
+        # hard coding bare_program_mode to 1 for the sake of etiss
+        self.bare_program_mode = 1
         # Enable accessing illegal CSR instruction
         # - Accessing non-existence CSR
         # - Accessing CSR with wrong privileged mode
